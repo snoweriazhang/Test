@@ -1,0 +1,57 @@
+body {
+    background-color: #000000;
+    color: #ddd;
+    font-size: 11pt;
+    font-family: 'Century Gothic',sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Sirin Stencil','Century Gothic',sans-serif;
+}
+code {
+    color: #eeff00;
+}
+a {
+    color:#fff;
+}
+a:link {
+    color:#00dddd;
+}
+a:visited {
+    color:#268bd2;
+}
+
+h5 {
+    font-style: italic;
+}
+
+div#instructions{
+    max-width: 400px;
+}
+div#wrapper-main {
+    max-width: 720px;
+    margin:auto;
+    min-width: 480px;
+}
+div#header *{
+    margin:auto;
+    text-align:center;
+    margin-bottom: 1em;
+}
+pre.file {
+    border: 4px double white;
+    padding: 0.5em;
+    overflow: hidden;
+}
+.demo-code, .tip-code {
+    background-color:#002b36;
+    color: #2aa198;
+    white-space: pre;
+    display:block;
+    padding: 0.5em;
+    border: 4px double black;
+    overflow: scroll;
+}
+.demo-code {
+    max-height: 30em;
+}

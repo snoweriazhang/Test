@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test - What You Did: August 18th, 2012</title>
+        <meta charset='utf-8'>
+        <link href='http://fonts.googleapis.com/css?family=Sirin+Stencil' rel='stylesheet' type='text/css'>
+        <link href="./static/styles.css" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="./static/Sugared_DOM.js"></script>
+        <script type="text/javascript" src="./static/google-code-prettify/prettify.js"></script>
+        <script type="text/javascript" src="./static/demo.js"></script>
+    </head>
+    <body>
+        <div id="wrapper-main">
+            <div id="header">
+                <h1>Test - What You Did: August 18th, 2012</h1>
+            </div>
+            <div id="content">
+                <nav style="position:relative;right:0px;top:0px;float:right;">
+                    <h4 style="margin:0;padding:0;">Navigation</h4>
+                    <i style="font-size:10pt;">topic (item count)</i>
+                    <ul style="margin-top:0;margin-left:-1.25em;">
+                    </ul>
+                    <script type="text/javascript">
+                        jQuery(function($){
+                        $("h2").each(function(){
+                            $("nav > ul").append(
+                                el('li',[   // build partial DOM tree using Sugared DOM
+                                    el('a',{href:'#'+this.id},[
+                                        this.textContent+' ('+$(this).next().children().length+')'
+                                    ])
+                                ])
+                            );
+                        })});
+                    </script>
+                </nav>
+                <div>
+                    <h2 id="setup_version_control">Setup Version Control: Git</a></h2>
+                    <ol>
+                        <li><a href="http://git-scm.com/downloads">Download latest version of Git for OS X 10.7</a></li>
+                        <li>Create a folder in which to place your git repos.
+                            <code class="tip-code">mkdir -p ~/repos/git/working
+cd ~/repos/git/working</code>
+                        </li>
+                        <li>Create a <a href="https://github.com/">Github</a> account and verify your account email address.</li>
+                        <li><a href="https://help.github.com/articles/set-up-git/">Configure your global git config with your account information.</a></li>
+                        <li><a href="https://help.github.com/articles/ssh-key-setup">Generate SSH keys for Github</a></li>
+                        <li><h3>Create a repo (with Github)</h3>
+                            <ol>
+                                <li>Create a new repo on <a href="https://github.com/">Github</a> (with the with README option).</li>
+                                <li>Clone the repo. (Make sure you are in  your git working directory.)
+                                    <code class="tip-code">pwd    # this should be ~/repos/git/working
+git clone git@github.com:&lt;your username&gt;/&lt;your repo&gt;.git
+cd &lt;your repo&gt;</code>
+                                </li>
+                                <li>Make changes and push
+                                    <code class="tip-code">pwd    # this should be ~/repos/git/working
+&lt;do stuff ...&gt;
+git add &lt;files&gt;
+git commit -m &lt;message&gt;
+git push      # fetch and merge changes from remote repo (remember to COMMIT before doing this)
+git pull      # pull down changes from remote repo (remember to COMMIT before doing this)</code>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div>
+                <div>
+                    <h2 id="setup_lean_editor">Setup Lean Editor: SublimeText2</h2>
+                    <ol>
+                        <li><a href="http://www.sublimetext.com/2">Download SublimeText2</a></li>
+                        <li><a href="http://www.sublimetext.com/docs/2/osx_command_line.html">Setup SublimeText2 commandline tool</a></li>
+                    </ol>
+                </div>
+                <div>
+                    <h2 id="setup_local_webserver">Setup Local Webserver: MAMP</h2>
+                    <ol>
+                        <li><a href="http://www.mamp.info/en/downloads/index.html">Download MAMP</a></li>
+                        <li>
+                            <h3>Setup Virtual Hosts</h3>
+                            <ul>
+                                <li>Only once, you need to uncomment <code>Include ../httpd-vhosts.conf</code></li>
+                                <li>For each web app, choose a domain name to add to <code>/etc/hosts</code></li>
+                                    <pre class="file">
+#dobby
+127.0.0.1           test.local                  # dobby's first web app</pre>
+                                <li>For each web app, add a new VirtualHost and DocumentRoot declaration to <code>Include ../httpd-vhosts.conf</code>
+                                    <br /><u>example</u>
+                                    <pre class="file">
+&lt;VirtualHost *:80&gt;
+    ServerAdmin admin@localhost
+    DocumentRoot "C:/repos/Test/web"
+    ServerName test.local
+    ErrorLog "logs/test.local-error.log"
+    CustomLog "logs/test.local-access.log" combined
+    &lt;Directory "C:/repos/Test/web"&gt;
+      Order Deny,Allow
+      Allow from all
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;</pre>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                <div>
+                    <h2 id="other_links">Other Links</h2>
+                    <ul>
+                        <li><a href="http://codeigniter.com/">CodeIgniter</a></li>
+                        <li><a href="http://livereload.com/">LiveReload</a></li>
+                        <li><a href="http://filezilla-project.org/">FileZilla</a></li>
+                        <li><a href="http://laravel.com/">Laravel</a></li>
+                        <li><a href="http://d3js.org/">D3js</a></li>
+                        <li><a href="https://gist.github.com/1207002">Some SublimeText2 Shortcuts</a></li>
+                        <li><a href=""></a></li>
+                    </ul>
+                </div>
+             </div>
+        </div>
+    </body>
+</html>
